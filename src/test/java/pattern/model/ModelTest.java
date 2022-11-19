@@ -15,6 +15,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.nio.file.Files;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -48,7 +49,7 @@ public class ModelTest {
 		PrintStream out = null;
 
 		try {
-			File file = File.createTempFile(base, suffix);
+			File file = Files.createTempFile(base, suffix).toFile();
 			file.deleteOnExit();
 
 			filename = file.getCanonicalFile().toString();
